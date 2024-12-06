@@ -1,0 +1,44 @@
+.container {
+    background-color: black;
+    color: white;
+    margin: 20px;
+    padding-left:40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+.container h1 {
+    margin: auto;
+    margin-left: 0;
+}
+.menu {
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(4, auto);
+}
+.menu p {
+    margin: auto;
+    padding: 20px;
+}
+.menu p:hover {
+    background-color: white;
+    color: black;
+}
+.menu-logo {
+    display: none;
+}
+.logo {
+    width: 20px;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 30px 40px;
+    }
+    .menu {
+        display: none;
+    }
+    .menu-logo {
+        margin: auto;
+        display: block;
+    }
+    
+}
