@@ -2,8 +2,8 @@ body {
     margin: 0;
 }
 .container {
-    display: grid;
-    grid-template-rows: repeat(3, auto);
+    display: flex;
+    flex-direction: column;
     padding: 20px;
 }
 .box {
@@ -14,28 +14,40 @@ body {
 }
 .responsive {
     box-sizing: border-box;
-    display: grid;
+    display: flex;
     padding: 20px;
-    grid-template-columns: 1fr 400px;
-    grid-gap: 20px;
+    gap: 20px;
 }
 .responsive div{
     padding: 20px;
 }
 .responsive div:first-child{
+    flex-grow: 1;
     background-color: #F4F4F4;
 }
 .responsive div:last-child{
+    width: 400px;
     background-color: #DDDDDD;
 }
 
 @media screen and (max-width: 900px) {
     .responsive {
-        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+    .responsive div {
+        flex-grow: 1;
+         /* tem can grow and take up any remaining space equally with other items that also have flex-grow set to 1 */
+        flex-shrink: 1;
+        /* item will shrink proportionally when necessary. */
+        flex-basis: calc(50%);
+        /* it calculates the width to be 50% of the container's width */
+    }
+    .responsive div:last-child{
+        width: auto;
     }
 }
 @media screen and (max-width: 600px) {
     .responsive {
-        grid-template-columns: 1fr;
+        flex-direction: column;
     }
 }
